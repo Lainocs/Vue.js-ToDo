@@ -2,10 +2,10 @@
 
 <div class="container">
 
-    <div>
+    <div class="nav">
         <p>{{ date }}</p>
         <h1>VueJs Tutorial ToDo List</h1>
-        <p>{{ tasks.length }}</p>
+        <p>Nombre de tâches : {{ tasks.length }}</p>
     </div>
     <div>
         <NewToDo @newTask="addTask"></NewToDo>
@@ -64,6 +64,12 @@ export default {
 
 <style scoped>
 
+.nav {
+  border-bottom: 1px solid #dddddd;
+  box-shadow: 0 0 2px;
+  margin-bottom: 10px;
+}
+
 .container {
     width: 600px;
     min-height: 300px;
@@ -73,8 +79,6 @@ export default {
 .container div:first-of-type {
     display: flex;
     justify-content: space-around;
-    border-bottom: 1px solid rgb(236, 236, 236);
-    box-shadow: 0px 0px 2px;
 
 }
 
