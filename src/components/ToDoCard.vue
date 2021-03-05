@@ -66,7 +66,7 @@ export default {
 
 .container {
     width: 600px;
-    height: 300px;
+    min-height: 300px;
     background-color: #FFFFFF;
 }
 

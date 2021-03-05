@@ -1,9 +1,9 @@
 <template>
     <div class="tasks">
         <div class="task" :key="task" v-for="task in tasks">
-            <input type="checkbox">
-            <label>{{ task.name }}</label>
-            <button @click="removeTask(tasks.indexOf(task))" class="button is-danger"></button>
+            <input @click="checkTask(tasks.indexOf(task))" :id="tasks.indexOf(task)" type="checkbox">
+            <label :for="tasks.indexOf" :id="'index' + tasks.indexOf(task)">{{ task.name }}</label>
+            <button @click="removeTask(tasks.indexOf(task))" class="fa fa-trash"></button>
         </div>
     </div>
 </template>
@@ -24,7 +24,18 @@ export default {
     methods: {
         removeTask(task) {
             this.$emit('removeTask', task)
+        },
+
+        checkTask(task) {
+            let checkbox = document.getElementById(task)
+
+            if(checkbox.checked) {
+                document.getElementById('index' + task).className = "checked"
+            } else {
+                document.getElementById('index' + task).className = "unchecked"
+            }
         }
+    
     }
 }
 </script>
@@ -32,9 +43,18 @@ export default {
 <style>
 
 .task {
+    padding: 40px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+}
+
+.unchecked {
+    text-decoration: none;
+}
+
+.checked {
+    text-decoration: line-through;
 }
 
 </style>
